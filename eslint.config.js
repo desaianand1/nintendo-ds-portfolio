@@ -8,6 +8,7 @@ export default tseslint.config(
 	eslint.configs.recommended,
 	...tseslint.configs.recommended,
 	...svelte.configs['flat/recommended'],
+	...svelte.configs.prettier,
 	prettier,
 	...svelte.configs['flat/prettier'],
 	{
