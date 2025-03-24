@@ -26,6 +26,12 @@ We are currently in the initial phase of development, focusing on:
 
 ## Recent Changes
 
+### Documentation Resources
+
+- Added offline Svelte and Threlte documentation in docs/cline-reference/
+- Created condensed knowledge cache in docs/memory-bank/reference/
+- Implemented quick-reference guides for core technologies
+
 ### Model Pipeline
 
 - Implemented model optimization pipeline using @threlte/gltf

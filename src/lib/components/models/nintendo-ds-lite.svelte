@@ -7,26 +7,23 @@ Command: npx @threlte/gltf@3.0.0 static/models/nintendo-ds-lite.glb
   import { T } from '@threlte/core'
   import { useGltf } from '@threlte/extras'
 
-  let { fallback, error, children, ref = $bindable(), ...props } = $props()
+  let { ref = $bindable() } = $props()
 
-  const gltf = useGltf('/static/models/nintendo-ds-lite.glb')
+  const gltf = useGltf('src/lib/assets/models/nintendo-ds-lite.glb')
 </script>
 
 <T.Group
   bind:ref
   dispose={false}
-  {...props}
 >
   {#await gltf}
-    {@render fallback?.()}
+    <!-- Loading state -->
   {:then gltf}
     <T is={gltf.nodes.Root_Bone} />
     <T is={gltf.nodes.Pad_Bone} />
     <T is={gltf.nodes.Trigger_R_Bone} />
     <T is={gltf.nodes.Trigger_L_Bone} />
   {:catch err}
-    {@render error?.({ error: err })}
+    <!-- Error state -->
   {/await}
-
-  {@render children?.({ ref })}
 </T.Group>

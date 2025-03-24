@@ -1,81 +1,76 @@
 <script lang="ts">
   import { T } from '@threlte/core'
-  import { ContactShadows, Float, Grid, OrbitControls } from '@threlte/extras'
+  import { ContactShadows, OrbitControls } from '@threlte/extras'
+  import DSLite from './DSLite.svelte'
+  import { dsState } from '$lib/state/ds.svelte'
+  
+  // Camera settings
+  const cameraPosition = { x: 0, y: 1.5, z: 4 }
+  const orbitControlsTarget = { x: 0, y: 1, z: 0 }
+  
+  // Lighting settings
+  const mainLightIntensity = 1.5
+  const ambientLightIntensity = 0.5
+  
+  // Handle model interaction
+  function handleModelInteraction(event: { type: 'lid' | 'power', value: boolean }) {
+    const { type, value } = event
+    console.log(`Model interaction: ${type} - ${value}`)
+  }
 </script>
 
 <T.PerspectiveCamera
   makeDefault
-  position={[-10, 10, 10]}
-  fov={15}
+  position={[cameraPosition.x, cameraPosition.y, cameraPosition.z]}
+  fov={35}
 >
   <OrbitControls
-    autoRotate
-    enableZoom={false}
     enableDamping
-    autoRotateSpeed={0.5}
-    target.y={1.5}
+    dampingFactor={0.05}
+    enableZoom={true}
+    minDistance={2}
+    maxDistance={10}
+    enablePan={false}
+    target={[orbitControlsTarget.x, orbitControlsTarget.y, orbitControlsTarget.z]}
   />
 </T.PerspectiveCamera>
 
+<!-- Main key light -->
 <T.DirectionalLight
-  intensity={0.8}
-  position.x={5}
-  position.y={10}
-/>
-<T.AmbientLight intensity={0.2} />
+  intensity={mainLightIntensity}
+  position={[5, 8, 5]}
+  castShadow
+  shadow-mapSize={[2048, 2048]}
+>
+  <T.OrthographicCamera
+    attach="shadow-camera"
+    args={[-5, 5, 5, -5, 0.1, 20]}
+  />
+</T.DirectionalLight>
 
-<Grid
-  position.y={-0.001}
-  cellColor="#ffffff"
-  sectionColor="#ffffff"
-  sectionThickness={0}
-  fadeDistance={25}
-  cellSize={2}
+<!-- Fill light -->
+<T.DirectionalLight
+  intensity={mainLightIntensity * 0.3}
+  position={[-5, 3, -5]}
 />
 
+<!-- Ambient light for overall scene brightness -->
+<T.AmbientLight intensity={ambientLightIntensity} />
+
+<!-- Ground shadow -->
 <ContactShadows
+  opacity={0.5}
   scale={10}
   blur={2}
-  far={2.5}
-  opacity={0.5}
+  far={5}
+  resolution={256}
+  color="#000000"
 />
 
-<Float
-  floatIntensity={1}
-  floatingRange={[0, 1]}
->
-  <T.Mesh
-    position.y={1.2}
-    position.z={-0.75}
-  >
-    <T.BoxGeometry />
-    <T.MeshStandardMaterial color="#0059BA" />
-  </T.Mesh>
-</Float>
-
-<Float
-  floatIntensity={1}
-  floatingRange={[0, 1]}
->
-  <T.Mesh
-    position={[1.2, 1.5, 0.75]}
-    rotation.x={5}
-    rotation.y={71}
-  >
-    <T.TorusKnotGeometry args={[0.5, 0.15, 100, 12, 2, 3]} />
-    <T.MeshStandardMaterial color="#F85122" />
-  </T.Mesh>
-</Float>
-
-<Float
-  floatIntensity={1}
-  floatingRange={[0, 1]}
->
-  <T.Mesh
-    position={[-1.4, 1.5, 0.75]}
-    rotation={[-5, 128, 10]}
-  >
-    <T.IcosahedronGeometry />
-    <T.MeshStandardMaterial color="#F8EBCE" />
-  </T.Mesh>
-</Float>
+<!-- DS Lite model -->
+<DSLite 
+  position={[0, 1, 0]}
+  scale={1}
+  rotation={[0, 0, 0]}
+  onInteract={handleModelInteraction}
+/>

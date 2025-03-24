@@ -50,6 +50,42 @@
   - Touch input handling
   - Audio emulation
 
+## Documentation Resources
+
+### Offline Documentation
+
+- **Svelte 5 Docs** (`docs/cline-reference/svelte-docs/`)
+  - Comprehensive runes documentation
+  - Syntax guides and examples
+  - Component patterns
+  - Migration guides
+
+- **Threlte 8 Docs** (`docs/cline-reference/threlte-docs/`)
+  - Core concepts and tutorials
+  - API reference
+  - Advanced usage guides
+  - Performance optimization
+
+### Knowledge Cache
+
+Located in `docs/memory-bank/reference/`:
+
+- **svelte-essentials.md**
+  - Condensed Svelte 5 knowledge
+  - Runes syntax and patterns
+  - Best practices
+  - Common gotchas
+  - Migration notes
+
+- **threlte-essentials.md**
+  - Essential Threlte patterns
+  - Scene management
+  - Animation systems
+  - Performance optimization
+  - Common pitfalls
+
+These resources provide both comprehensive documentation (offline docs) and quick-reference guides (knowledge cache) for the core technologies used in this project.
+
 ## Development Environment
 
 ### Required Software
