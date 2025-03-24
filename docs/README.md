@@ -1,8 +1,8 @@
 # 🎮 Nintendo DS Lite Portfolio
 
-![License](https://img.shields.io/badge/license-Proprietary-red.svg)
-![Framework](https://img.shields.io/badge/framework-SvelteKit%205-FF3E00)
-![3D](https://img.shields.io/badge/3D-Threlte%208-44CC11)
+![License](https://img.shields.io/badge/License-Proprietary-red.svg)
+![Framework](https://img.shields.io/badge/SvelteKit%205-FF3E00?logo=svelte&logoColor=FFFFFF)
+![3D](https://img.shields.io/badge/Threlte%208-000000?logo=threedotjs&logoColor=FFFFFF)
 
 > An interactive 3D web portfolio showcasing work through a nostalgic Nintendo DS Lite experience, complete with authentic animations and a functional emulator.
 
