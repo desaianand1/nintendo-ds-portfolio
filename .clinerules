@@ -1,0 +1,146 @@
+# Nintendo DS Lite Portfolio - Project Intelligence
+
+## Project Patterns
+
+### File Organization
+
+- Components are organized by feature then type
+- Shared utilities go in lib/utils
+- Types are centralized in lib/types
+- Assets are stored in static/
+
+### Naming Conventions
+
+- Component files: PascalCase.svelte
+- Utility files: camelCase.ts
+- Type files: camelCase.ts
+- Test files: *.spec.ts or*.test.ts
+
+### Code Style
+
+- Use TypeScript strict mode
+- Prefer runes over traditional Svelte stores
+- Use async/await for promises
+- Document complex functions
+
+### Component Patterns
+
+- Props interface at top of file
+- Events documented in JSDoc
+- State declarations before methods
+- Methods grouped by functionality
+
+### State Management
+
+- Use runes for component state
+- Centralize shared state in stores
+- Document state dependencies
+- Handle state updates atomically
+
+### Testing Patterns
+
+- Unit tests for utilities
+- Component tests with DOM checks
+- Integration tests for features
+- Performance tests for critical paths
+
+## Development Workflow
+
+### Branch Strategy
+
+- Feature branches from main
+- Use semantic commit messages
+- PR for all significant changes
+- Keep PRs focused and small
+
+### Code Review
+
+- Check type safety
+- Verify performance impact
+- Ensure test coverage
+- Review documentation
+
+### Documentation
+
+- Update memory bank for changes
+- Document complex algorithms
+- Keep active-context.md current
+- Track progress in progress.md
+
+## Project Intelligence
+
+### Critical Paths
+
+1. Model loading and optimization
+2. Animation system implementation
+3. Screen overlay positioning
+4. State management architecture
+
+### Known Challenges
+
+1. Screen position tracking accuracy
+2. Animation state complexity
+3. Performance optimization
+4. Cross-browser compatibility
+
+### Best Practices
+
+1. Progressive asset loading
+2. Batched state updates
+3. Optimized render cycles
+4. Error boundary implementation
+
+### Performance Considerations
+
+1. Monitor frame rates
+2. Track memory usage
+3. Optimize asset loading
+4. Batch DOM updates
+
+## Tool Usage Patterns
+
+### Development Tools
+
+- VSCode for editing
+- Chrome DevTools for debugging
+- Three.js Inspector for 3D
+- Svelte DevTools for components
+
+### Build Tools
+
+- Vite for development
+- TypeScript for compilation
+- ESLint for linting
+- Prettier for formatting
+
+### Testing Tools
+
+- Vitest for unit tests
+- Testing Library for components
+- Playwright for E2E
+- Lighthouse for performance
+
+## Learning Points
+
+### Key Insights
+
+1. Screen overlay positioning requires 3D to 2D projection
+2. Animation states need centralized management
+3. Performance optimization is critical for 3D
+4. Type safety improves maintenance
+
+### Solved Problems
+
+1. Model pipeline configuration
+2. Basic scene setup
+3. Project structure organization
+4. Documentation system
+
+### Future Considerations
+
+1. Scale testing for large ROMs
+2. Memory management for emulator
+3. Touch input handling
+4. Save state persistence
+
+This intelligence document will evolve as new patterns and insights are discovered during development.

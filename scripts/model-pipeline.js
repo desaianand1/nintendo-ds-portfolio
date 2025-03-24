@@ -108,7 +108,7 @@ filteredGltfFiles.forEach((file) => {
   const formattedArgs = args.join(' ')
 
   // run the command
-  const cmd = `npx @threlte/gltf@latest ${path} ${formattedArgs}`
+  const cmd = `pnpm dlx @threlte/gltf@latest ${path} ${formattedArgs}`
   try {
     execSync(cmd, {
       cwd: configuration.sourceDir
